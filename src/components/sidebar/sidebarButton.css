@@ -1,0 +1,13 @@
+a {
+    text-decoration: none !important;
+}
+
+.btn-body {
+    height: 60px;
+    width: 60px;
+    border-radius: 20px;
+    color: #CAD2C5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
