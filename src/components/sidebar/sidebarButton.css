@@ -3,11 +3,26 @@ a {
 }
 
 .btn-body {
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     border-radius: 20px;
     color: #CAD2C5;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    margin: 5px auto;
+
+}
+
+.btn-body.active{
+    background-color: #52796F;
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-title {
+    margin: 4px auto;
+    font-weight: bold;
+    font-size: 14px;
 }
