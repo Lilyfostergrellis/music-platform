@@ -31,7 +31,7 @@ export default function Library() {
 
     fetch("https://accounts.spotify.com/api/token", tokenParams)
       .then((result) => result.json())
-      .then((data) => console.log(data.access_token));
+      .then((data) => setAccessToken(data.access_token));
   }, []);
 
   async function search() {
