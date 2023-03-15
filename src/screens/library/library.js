@@ -1,5 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
+// needed for react bootsrap
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+    Container,
+    InputGroup,
+    FormControl,
+    Button,
+    Row,
+    Card,
+  } from "react-bootstrap";
 
 const CLIENT_ID = "3deed9bc4aff411493d9447b7d93fdc6";
 const CLIENT_SECRET = "36756a1ae5a5415594e0eda5bc0508b9";
