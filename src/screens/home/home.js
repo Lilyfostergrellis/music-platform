@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Library from "./library";
-import Feed from "./feed";
-import Trending from "./trending";
-import Player from "./player";
-import Favourites from "./favourites";
+import Library from "../library/library";
+import Feed from "../feed/feed";
+import Trending from "../trending/trending";
+import Player from "../player/player";
+import Favourites from "../favourites/favourites";
 //route paths set for js files/pages of application.
 
 export default function Home() {
@@ -21,3 +21,5 @@ export default function Home() {
     </Router>
     );
 }
+
+
