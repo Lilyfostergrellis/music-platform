@@ -12,11 +12,18 @@ a {
     justify-content: center;
     flex-direction: column;
     margin: 5px auto;
+    transition: all 0.2s ease;
+    background-color: #52796F 0.0;
 
 }
 
 .btn-body.active{
     background-color: #52796F;
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-body:hover{
     color: white;
     transform: scale(1.05);
 }
