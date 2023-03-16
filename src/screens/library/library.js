@@ -17,6 +17,7 @@ const CLIENT_SECRET = "36756a1ae5a5415594e0eda5bc0508b9";
 export default function Library() {
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
+  const [albums, setAlbums] = useState([]);
 
   // run once when app starts
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Library() {
     console.log(`Search for ${searchInput}`);
 
     // get request using search, to get the Artist ID
-    const artistParams = {
+    const searchParams = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -47,15 +48,22 @@ export default function Library() {
       },
     };
 
-    let artistID = await fetch(
+    const artistID = await fetch(
       `https://api.spotify.com/v1/search?q=${searchInput}&type=artist`,
-      artistParams
+      searchParams
     )
       .then((result) => result.json())
-      .then((data) => console.log(data));
+      .then((data) => data.artists.items[0].id);
+
+    console.log(`Artist ID: ${artistID}`);
 
     // get request with Artist ID, to get all the albums of that Artist
-    // display those Albums to the user
+    await fetch(
+      `https://api.spotify.com/v1/artists/${artistID}/albums/?include_groups=album&market=US&limit=50`,
+      searchParams
+    )
+      .then((response) => response.json())
+      .then((data) => setAlbums(data.items));
   }
 
   return (
@@ -77,13 +85,22 @@ export default function Library() {
         </InputGroup>
       </Container>
       <Container>
-        <Row className="row row-cols-12 mx-2">
-          <Card>
-            <Card.Img src="#" />
-            <Card.Body>
-              <Card.Title>Album name</Card.Title>
-            </Card.Body>
-          </Card>
+        <Row className="row row-cols-4 mx-2">
+          {
+            // display Albums to the user
+            albums.map((album) => {
+              console.log(album);
+
+              return (
+                <Card key={album.id}>
+                  <Card.Img src={album.images[0].url} />
+                  <Card.Body>
+                    <Card.Title>{album.name}</Card.Title>
+                  </Card.Body>
+                </Card>
+              );
+            })
+          }
         </Row>
       </Container>
     </div>
