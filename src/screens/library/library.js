@@ -40,7 +40,7 @@ export default function Library() {
     console.log(`Search for ${searchInput}`);
 
     // get request using search, to get the Artist ID
-    const artistParams = {
+    const searchParams = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -48,12 +48,14 @@ export default function Library() {
       },
     };
 
-    let artistID = await fetch(
+    const artistID = await fetch(
       `https://api.spotify.com/v1/search?q=${searchInput}&type=artist`,
-      artistParams
+      searchParams
     )
       .then((result) => result.json())
-      .then((data) => console.log(data));
+      .then((data) => data.artists.items[0].id);
+
+    console.log(`Artist ID: ${artistID}`);
 
     // get request with Artist ID, to get all the albums of that Artist
     await fetch(
@@ -83,7 +85,7 @@ export default function Library() {
         </InputGroup>
       </Container>
       <Container>
-        <Row className="row row-cols-12 mx-2">
+        <Row className="row row-cols-4 mx-2">
           {
             // display Albums to the user
             albums.map((album) => {
