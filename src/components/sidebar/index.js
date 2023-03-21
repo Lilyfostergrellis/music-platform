@@ -13,7 +13,7 @@ export default function Sidebar() {
             <img src="https://www.w3schools.com/howto/img_avatar2.png" className="profile-img" alt="profile"></img>
             <div>
                 <SidebarButton title="Feed" to="/feed" icon={<MdSpaceDashboard />}/>
-                <SidebarButton title="Trending" to="/trending" icon={<FaGripfire />}/>
+                <SidebarButton title="New Releases" to="/new-releases" icon={<FaGripfire />}/>
                 <SidebarButton title="Player" to="/player" icon={<FaPlay />}/>
                 <SidebarButton title="Favourites" to="/favourites" icon={<MdFavorite />}/>
                 <SidebarButton title="Library" to="/Library" icon={<IoLibrary />}/>
