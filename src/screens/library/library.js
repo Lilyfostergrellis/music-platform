@@ -1,15 +1,6 @@
+import { Box, Button, Card, CardBody, CardHeader, Image, Input, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import { useState, useEffect } from "react";
-// needed for react bootsrap
-import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Container,
-  InputGroup,
-  FormControl,
-  Button,
-  Row,
-  Card,
-} from "react-bootstrap";
 
 const CLIENT_ID = "3deed9bc4aff411493d9447b7d93fdc6";
 const CLIENT_SECRET = "36756a1ae5a5415594e0eda5bc0508b9";
@@ -67,13 +58,11 @@ export default function Library() {
   }
 
   return (
-    <div className="screen-conatiner">
+    <Box>
       Library
-      <Container>
-        <InputGroup className="mb-3" size="lg">
-          <FormControl
+      <Box>
+          <Input
             placeholder="Search for Artist"
-            type="input"
             onKeyUp={(event) => {
               if (event.key === "Enter") {
                 search();
@@ -82,10 +71,10 @@ export default function Library() {
             onChange={(event) => setSearchInput(event.target.value)}
           />
           <Button onClick={search}>Search</Button>
-        </InputGroup>
-      </Container>
-      <Container>
-        <Row className="row row-cols-4 mx-2">
+
+      </Box>
+      <Box>
+        <SimpleGrid columns={4}>
           {
             // display Albums to the user
             albums.map((album) => {
@@ -93,16 +82,16 @@ export default function Library() {
 
               return (
                 <Card key={album.id}>
-                  <Card.Img src={album.images[0].url} />
-                  <Card.Body>
-                    <Card.Title>{album.name}</Card.Title>
-                  </Card.Body>
+                  <Image src={album.images[0].url} />
+                  <CardBody>
+                    <CardHeader>{album.name}</CardHeader>
+                  </CardBody>
                 </Card>
               );
             })
           }
-        </Row>
-      </Container>
-    </div>
+        </SimpleGrid>
+      </Box>
+    </Box>
   );
 }
