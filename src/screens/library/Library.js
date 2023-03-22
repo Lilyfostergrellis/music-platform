@@ -2,6 +2,7 @@ import { Box, Button, Card, CardBody, CardHeader, Image, Input, SimpleGrid } fro
 import React from "react";
 import { useState, useEffect } from "react";
 import { UserContext } from "../../App";
+import "./Library.css";
 
 export default function Library() {
   const [searchInput, setSearchInput] = useState("");
@@ -43,9 +44,9 @@ export default function Library() {
 
   return (
     <Box>
-      Library
-      <Box>
-          <Input
+      
+      <Box className="topsearchcontainer">
+          <Input className="searchbar"
             placeholder="Search for Artist"
             onKeyUp={(event) => {
               if (event.key === "Enter") {
@@ -57,8 +58,8 @@ export default function Library() {
           <Button onClick={search}>Search</Button>
 
       </Box>
-      <Box>
-        <SimpleGrid columns={4}>
+      <Box className="searchresults">
+        <SimpleGrid minChildWidth='160px' spacing='40px'>
           {
             // display Albums to the user
             albums.map((album) => {

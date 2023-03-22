@@ -29,7 +29,7 @@ export default function Sidebar() {
         icon={<MdFavorite />}
       />
       <SidebarButton title="Library" to="/Library" icon={<IoLibrary />} />
-      <SidebarButton title="Sign Out" to="/" icon={<FaSignOutAlt />} />
+      <SidebarButton title="Home" to="/" icon={<FaSignOutAlt />} />
     </VStack>
   );
 }
