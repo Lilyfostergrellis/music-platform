@@ -1,0 +1,14 @@
+.searchbar {
+    text-align: center;
+}
+
+.topsearchcontainer {
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+/* .searchresults {
+    
+} */
