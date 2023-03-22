@@ -1,6 +1,6 @@
-import { Container, Heading, SimpleGrid, Image, Card, CardBody, CardHeader } from "@chakra-ui/react";
+import { Container, Heading, SimpleGrid, /* Image, Card, CardBody, CardHeader */ } from "@chakra-ui/react";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, /* useEffect */ } from "react";
 import { UserContext } from "../../App";
 
 
@@ -9,7 +9,7 @@ export default function NewReleases() {
 
   // get access token from react context
   const accessToken = React.useContext(UserContext); 
-    const [albums, setAlbums] = useState([]);
+    const [albums, /* setAlbums */] = useState([]);
 
   async function search() {
     console.log("new releases" + accessToken);

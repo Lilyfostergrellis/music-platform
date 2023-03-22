@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // chakra
-import { Box, Container, Grid, GridItem, Text, VStack } from "@chakra-ui/react";
+import { Container, Grid, GridItem } from "@chakra-ui/react";
 
 import Sidebar from "./components/sidebar";
 
