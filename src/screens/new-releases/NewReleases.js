@@ -1,25 +1,26 @@
 import { Container, Heading, SimpleGrid, /* Image, Card, CardBody, CardHeader */ } from "@chakra-ui/react";
 import React from "react";
-import { useState, /* useEffect */ } from "react";
-import { UserContext } from "../../App";
-
+import { useState, useContext, /* useEffect */ } from "react";
+// import { UserContext } from "../../App";
+import AppContext from "../../context/appContext";
 
 
 export default function NewReleases() {
 
   // get access token from react context
-  const accessToken = React.useContext(UserContext); 
+  const ctx = useContext(AppContext)
+  // const accessToken = React.useContext(UserContext); 
     const [albums, /* setAlbums */] = useState([]);
 
   async function search() {
-    console.log("new releases" + accessToken);
+    console.log("new releases" + ctx.accessToken);
 
     // get request using search, to get the Artist ID
     const searchParams = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${ctx.accessToken}`,
       },
     };
 

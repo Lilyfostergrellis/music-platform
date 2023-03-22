@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
+import AppContext from "./context/appContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // chakra
@@ -19,11 +20,11 @@ import "./index.css";
 const CLIENT_ID = "3deed9bc4aff411493d9447b7d93fdc6";
 const CLIENT_SECRET = "36756a1ae5a5415594e0eda5bc0508b9";
 
-export const UserContext = React.createContext();
+// export const UserContext = React.createContext();
 
 export default function App() {
-  
-  const [accessToken, setAccessToken] = useState("");
+  // const [accessToken, setAccessToken] = useState("");
+  const ctx = useContext(AppContext);
 
   // run once when app starts
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function App() {
 
     fetch("https://accounts.spotify.com/api/token", tokenParams)
       .then((result) => result.json())
-      .then((data) => setAccessToken(data.access_token));
+      .then((data) => ctx.setAccessToken(data.access_token));
   }, []);
 
   return (
@@ -47,9 +48,8 @@ export default function App() {
         <GridItem as="nav">
           <Sidebar />
         </GridItem>
-        <GridItem  as="main">
+        <GridItem as="main">
           <Container>
-          <UserContext.Provider value={accessToken}>
             <Routes>
               <Route index element={<Home />} />
               <Route path="/Library" element={<Library />} />
@@ -58,7 +58,6 @@ export default function App() {
               <Route path="/Player" element={<Player />} />
               <Route path="/Favourites" element={<Favourites />} />
             </Routes>
-            </UserContext.Provider>
           </Container>
         </GridItem>
       </Router>

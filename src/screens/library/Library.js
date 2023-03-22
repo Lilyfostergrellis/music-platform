@@ -1,7 +1,18 @@
-import { Box, Button, Card, CardBody, CardHeader, Image, Input, SimpleGrid } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Image,
+  Input,
+  SimpleGrid,
+} from "@chakra-ui/react";
 import React from "react";
-import { useState } from "react";
-import { UserContext } from "../../App";
+import { useState, useContext } from "react";
+import AppContext from "../../context/appContext";
+
+// import { UserContext } from "../../App";
 import "./Library.css";
 
 export default function Library() {
@@ -9,10 +20,11 @@ export default function Library() {
   const [albums, setAlbums] = useState([]);
 
   // get access token from react context
-  const accessToken = React.useContext(UserContext); 
+  // const ctx.accessToken = React.useContext(UserContext);
+  const ctx = useContext(AppContext);
 
   async function search() {
-    console.log(accessToken);
+    console.log(ctx.accessToken);
     console.log(`Search for ${searchInput}`);
 
     // get request using search, to get the Artist ID
@@ -20,7 +32,7 @@ export default function Library() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${ctx.accessToken}`,
       },
     };
 
@@ -44,22 +56,21 @@ export default function Library() {
 
   return (
     <Box>
-      
       <Box className="topsearchcontainer">
-          <Input className="searchbar"
-            placeholder="Search for Artist"
-            onKeyUp={(event) => {
-              if (event.key === "Enter") {
-                search();
-              }
-            }}
-            onChange={(event) => setSearchInput(event.target.value)}
-          />
-          <Button onClick={search}>Search</Button>
-
+        <Input
+          className="searchbar"
+          placeholder="Search for Artist"
+          onKeyUp={(event) => {
+            if (event.key === "Enter") {
+              search();
+            }
+          }}
+          onChange={(event) => setSearchInput(event.target.value)}
+        />
+        <Button onClick={search}>Search</Button>
       </Box>
       <Box className="searchresults">
-        <SimpleGrid minChildWidth='160px' spacing='40px'>
+        <SimpleGrid minChildWidth="160px" spacing="40px">
           {
             // display Albums to the user
             albums.map((album) => {
