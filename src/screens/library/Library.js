@@ -12,7 +12,6 @@ import React from "react";
 import { useState, useContext } from "react";
 import AppContext from "../../context/appContext";
 
-// import { UserContext } from "../../App";
 import "./Library.css";
 
 export default function Library() {
@@ -55,7 +54,7 @@ export default function Library() {
   }
 
   return (
-    <Box>
+    <>
       <Box className="topsearchcontainer">
         <Input
           className="searchbar"
@@ -73,7 +72,7 @@ export default function Library() {
         <SimpleGrid minChildWidth="160px" spacing="30px">
           {
             // display Albums to the user
-            albums.map((album) => {
+            albums && albums.map((album) => {
               console.log(album);
 
               return (
@@ -96,6 +95,6 @@ export default function Library() {
           }
         </SimpleGrid>
       </Box>
-    </Box>
+    </>
   );
 }
