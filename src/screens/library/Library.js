@@ -81,6 +81,14 @@ export default function Library() {
                   <Image src={album.images[0].url} />
                   <CardBody>
                     <CardHeader className="albumTitle">{album.name}</CardHeader>
+                    {/* <Heart isClick={isClick} onClick={()=> setClick(!isClick)}/> */}
+                    <Button
+                      colorScheme='teal'
+                      size='md'
+                      variant='solid'
+                      flex='row'
+                      align='center'>❤️
+                    </Button>
                   </CardBody>
                 </Card>
               );
