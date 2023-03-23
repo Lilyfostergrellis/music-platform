@@ -67,20 +67,28 @@ export default function Library() {
           }}
           onChange={(event) => setSearchInput(event.target.value)}
         />
-        <Button onClick={search}>Search</Button>
+        <Button className="searchButton" onClick={search}>Search</Button>
       </Box>
-      <Box className="searchresults">
-        <SimpleGrid minChildWidth="160px" spacing="40px">
+      <Box className="searchResults">
+        <SimpleGrid minChildWidth="160px" spacing="30px">
           {
             // display Albums to the user
             albums.map((album) => {
               console.log(album);
 
               return (
-                <Card key={album.id}>
+                <Card key={album.id} className="cards">
                   <Image src={album.images[0].url} />
                   <CardBody>
-                    <CardHeader>{album.name}</CardHeader>
+                    <CardHeader className="albumTitle">{album.name}</CardHeader>
+                    {/* <Heart isClick={isClick} onClick={()=> setClick(!isClick)}/> */}
+                    <Button
+                      colorScheme='teal'
+                      size='md'
+                      variant='solid'
+                      flex='row'
+                      align='center'>❤️
+                    </Button>
                   </CardBody>
                 </Card>
               );
