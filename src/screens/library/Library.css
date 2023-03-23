@@ -1,14 +1,14 @@
 .searchbar {
-    text-align: center;
+  text-align: center;
 }
 
 .topsearchcontainer {
-    height: 5em;
-    display: flex;
-    align-items: center;
-    justify-content: center
+  height: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* .searchresults {
-    
-} */
+.searchresults {
+  color: red;
+}

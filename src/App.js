@@ -49,7 +49,7 @@ export default function App() {
           <Sidebar />
         </GridItem>
         <GridItem as="main">
-          <Container>
+          <Container maxW="1000px" className="mainContainer">
             <Routes>
               <Route index element={<Home />} />
               <Route path="/Library" element={<Library />} />
