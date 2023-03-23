@@ -1,5 +1,5 @@
 import React, { useContext, Component } from "react";
-import Slider from "react-slick";
+/* import Slider from "react-slick"; */
 import { Box, Heading } from "@chakra-ui/react";
 // import { UserContext } from "../../App";
 import AppContext from "../../context/appContext";

@@ -1,0 +1,16 @@
+
+.albumTitle {
+    text-align: center;
+    font-weight: 700;
+}
+
+.searchResults{
+    cursor: pointer;
+    transition: 1s;
+}
+
+.cards:hover {
+    transform: scale(0.99, 0.99);
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.25), 
+      -5px -5px 30px 15px rgba(0,0,0,0.22);
+  }
