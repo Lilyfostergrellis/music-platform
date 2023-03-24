@@ -16,6 +16,7 @@ import Player from "./screens/player/Player";
 import Favourites from "./screens/favourites/Favourites";
 
 import "./index.css";
+import Category from "./screens/category/Category";
 
 const CLIENT_ID = "3deed9bc4aff411493d9447b7d93fdc6";
 const CLIENT_SECRET = "36756a1ae5a5415594e0eda5bc0508b9";
@@ -57,6 +58,7 @@ export default function App() {
               <Route path="/NewReleases" element={<NewReleases />} />
               <Route path="/Player" element={<Player />} />
               <Route path="/Favourites" element={<Favourites />} />
+              <Route path="/Category/:val" element={<Category />} />
             </Routes>
           </Container>
         </GridItem>
