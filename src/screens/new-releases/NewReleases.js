@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { useState, useContext, useEffect } from "react";
 import AppContext from "../../context/appContext";
+import "./newReleases.css";
 
 export default function NewReleases() {
   // get access token from react context
@@ -66,8 +67,8 @@ export default function NewReleases() {
 
   return (
     <>
-      <Heading>New Releases</Heading>
-      <Box className="searchresults">
+      <Heading size='lg' fontSize='50px' color="#CAD2C5" className="heading">New Releases</Heading>
+      <Box className="searchResults">
         <SimpleGrid minChildWidth="160px" spacing="40px">
           {
             // display Albums to the user
@@ -76,10 +77,10 @@ export default function NewReleases() {
                 console.log(album);
 
                 return (
-                  <Card key={album.id}>
+                  <Card key={album.id} className="cards">
                     <Image src={album.images[0].url} />
                     <CardBody>
-                      <CardHeader>{album.name}</CardHeader>
+                      <CardHeader className="albumTitle">{album.name}</CardHeader>
                     </CardBody>
                   </Card>
                 );
