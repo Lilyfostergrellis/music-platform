@@ -16,7 +16,7 @@ export default function Sidebar() {
         className="profile-img"
         alt="profile"
       ></img>
-      <SidebarButton title="Feed" to="/Feed" icon={<MdSpaceDashboard />} />
+      <SidebarButton title="Categories" to="/Feed" icon={<MdSpaceDashboard />} />
       <SidebarButton
         title="New Releases"
         to="/NewReleases"
